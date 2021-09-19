@@ -43,7 +43,8 @@ struct GoogleMap: View{
 
 final class MyMapView: MKMapView, CLLocationManagerDelegate ,MKMapViewDelegate{
     private let manager = CLLocationManager()
-
+    
+    //configureでクラスの設定をしている
     func configure(
         coordinate: CLLocationCoordinate2D,
         coordinate1: CLLocationCoordinate2D
@@ -51,20 +52,19 @@ final class MyMapView: MKMapView, CLLocationManagerDelegate ,MKMapViewDelegate{
         let center = coordinate
         let center1 = coordinate1
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 10000, longitudinalMeters: 10000)
-        let region1 = MKCoordinateRegion(center:center1,latitudinalMeters: 10000,
-                                         longitudinalMeters: 10000)
+        let region1 = MKCoordinateRegion(center:center1,latitudinalMeters: 10000,longitudinalMeters: 10000)
         let pin = MKPointAnnotation()
-        let pin1 = MKPointAnnotation()
         
         let coordinate = MKPlacemark(coordinate: coordinate)
         let coordinate1 = MKPlacemark(coordinate: coordinate1)
         let directionRequest = MKDirections.Request()
         directionRequest.source = MKMapItem(placemark: coordinate)
         directionRequest.destination = MKMapItem(placemark: coordinate1)
+        //移動形態を車に設定(.automobile)
         directionRequest.transportType = .automobile
         
         let directions = MKDirections(request: directionRequest)
-        //responseに配列の要素を渡している
+        
         directions.calculate{(response,error) in
             guard let directionResponse = response else {
                 if let error = error {
@@ -79,17 +79,19 @@ final class MyMapView: MKMapView, CLLocationManagerDelegate ,MKMapViewDelegate{
             self.setRegion(MKCoordinateRegion(rect), animated: true)
         }
         
-        pin.coordinate = center
-        pin1.coordinate = center1
+        
+        pin.coordinate = center1
+        
         
         addAnnotation(pin)
-        addAnnotation(pin1)
         
         self.region = region
         self.region = region1
         
         //CLLocationManagerDelegateプロトコルを実装するクラスを指定する
         manager.delegate = self
+        
+        //MKMapViewDelegateのDelegateをここで定義する
         delegate = self
         
         //Userの現在地をその都度アップデートすることが出来るメソッド
@@ -115,26 +117,19 @@ final class MyMapView: MKMapView, CLLocationManagerDelegate ,MKMapViewDelegate{
         //lastメソッドは配列の一番最後の部分を渡している
         let location = locations.last
         
-        configure(coordinate: location!.coordinate, coordinate1: CLLocationCoordinate2D(latitude:37.7917315 , longitude: -122.4169851))
-        
-        let point = MKPointAnnotation()
+        //coordinateに現在地情報を与える coordinate1に目的地の情報を与える
+        configure(coordinate: location!.coordinate, coordinate1: CLLocationCoordinate2D(latitude:37.7542605 , longitude: -122.4501876))
         
         //緯度経度から地域名を特定することができるプロパティ
         let georeder = CLGeocoder()
-
+        
+        //reverseGeocodeLocationでリクエストを処理した後にメソッド内の処理に移る
         georeder.reverseGeocodeLocation(location!) {(places,err) in
             
             if err != nil {
                 print((err?.localizedDescription)!)
                 return
             }
-            
-            let place = places?.first?.locality
-            point.title = place
-            point.subtitle = "Current Place"
-            point.coordinate = location!.coordinate
-            self.removeAnnotations(self.annotations)
-            self.addAnnotation(point)
             
             let region = MKCoordinateRegion(center: location!.coordinate,latitudinalMeters: 10000,
                                             longitudinalMeters: 10000)
