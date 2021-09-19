@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>882889143522-6bstkh8oum0a59ocvb9kean2n6pcujfr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.882889143522-6bstkh8oum0a59ocvb9kean2n6pcujfr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUWhH7KlPTWY-jo8CUADvVI7q6Q4kvDdc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>882889143522</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.premo.DengenCafe</string>
+	<key>PROJECT_ID</key>
+	<string>dengencafe-9a76e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dengencafe-9a76e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:882889143522:ios:7386632375bd4d6a495abb</string>
+</dict>
+</plist>

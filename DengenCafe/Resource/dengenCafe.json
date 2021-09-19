@@ -1,0 +1,46 @@
+[
+    {
+        "name":"クリスピークリームドーナツ",
+        "subName":"立川ルミネ店",
+        "category":"【立川駅北口近くの電源カフェ】",
+        "id": 1,
+        "city":"立川駅北口",
+        "isFeatured":false,
+        "coordinates":{
+            "longitude":139.4141752402458 ,
+            "latitude": 35.69851373464474
+        },
+        "link":"https://goo.gl/CijAGJ",
+        "imageName":"Krispy"
+        
+    },
+    {
+        "name":"スターバックスコーヒー" ,
+        "subName":"ルミネ立川店",
+        "category":"【立川駅北口近くの充電スタバ】",
+        "id": 2,
+        "city":"立川駅北口",
+        "isFeatured":false,
+        "coordinates":{
+            "longitude": 139.4137812402458,
+            "latitude": 35.69853797637297        },
+        "link":"https://store.starbucks.co.jp/detail-1250/?utm_source=GMB&utm_medium=organic&utm_campaign=store&utm_content=1250",
+        "imageName":"StarBacks"
+    },
+
+    {
+        "name":"スターバックスコーヒー",
+        "subName":"ルミネ立川店",
+        "category":"【立川駅北口の近くの充電スタバ】",
+        "id": 2,
+        "city":"立川駅北口",
+        "isFeatured":false,
+        "coordinates":{
+            "longitude":139.4137812402458,
+            "latitude": 35.69853797637297
+        },
+        "link":"https://store.starbucks.co.jp/detail-1250/?utm_source=GMB&utm_medium=organic&utm_campaign=store&utm_content=1250",
+        "imageName":"StarBacks"
+        
+    }
+]

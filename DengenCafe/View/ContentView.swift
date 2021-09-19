@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        DengenCafeList()
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            //プレビューデバイスを設定するコード
+            .previewDevice(PreviewDevice(rawValue:"iPhone 12 Pro Max"))
+        
     }
 }
+

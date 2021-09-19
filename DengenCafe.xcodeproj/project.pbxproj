@@ -3,23 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D18156BCB7C90945588E2BC /* Pods_DengenCafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C8E6CEDE1CD1E83D00EAD2 /* Pods_DengenCafe.framework */; };
+		CE06185C26EA4D7C00A19FE9 /* GoogleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06185B26EA4D7C00A19FE9 /* GoogleMap.swift */; };
 		CE4B022826DB645000E6C2E0 /* DengenCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B022726DB645000E6C2E0 /* DengenCafeApp.swift */; };
 		CE4B022A26DB645000E6C2E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B022926DB645000E6C2E0 /* ContentView.swift */; };
 		CE4B022C26DB645100E6C2E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4B022B26DB645100E6C2E0 /* Assets.xcassets */; };
 		CE4B022F26DB645100E6C2E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4B022E26DB645100E6C2E0 /* Preview Assets.xcassets */; };
+		CE4B023926DB73C400E6C2E0 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B023826DB73C400E6C2E0 /* CircleImage.swift */; };
+		CE4B023B26DB777200E6C2E0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B023A26DB777200E6C2E0 /* MapView.swift */; };
+		CE5563E326E10DF900CB05B4 /* dengenCafe.json in Resources */ = {isa = PBXBuildFile; fileRef = CE5563E226E10DF900CB05B4 /* dengenCafe.json */; };
+		CE5563E726E1147900CB05B4 /* DengenCafeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5563E626E1147900CB05B4 /* DengenCafeList.swift */; };
+		CE55707926DD130E009C2416 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55707826DD130E009C2416 /* Landmark.swift */; };
+		CE55708126DD13D3009C2416 /* Krispy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE55707E26DD13D3009C2416 /* Krispy.png */; };
+		CE55708226DD13D3009C2416 /* StarBacks.png in Resources */ = {isa = PBXBuildFile; fileRef = CE55707F26DD13D3009C2416 /* StarBacks.png */; };
+		CEA6A31E26DE6F020088514D /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6A31D26DE6F020088514D /* LandmarkDetail.swift */; };
+		CEA6A32026DE6FB70088514D /* DendenCafeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6A31F26DE6FB70088514D /* DendenCafeRow.swift */; };
+		CEB5FFA326E673BC0032E2C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEB5FFA226E673BC0032E2C1 /* GoogleService-Info.plist */; };
+		CEBF8AF126DFDC2200FE0EFE /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF8AF026DFDC2200FE0EFE /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AD3F6225F3F8FBB7B7C27AA /* Pods-DengenCafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengenCafe.debug.xcconfig"; path = "Target Support Files/Pods-DengenCafe/Pods-DengenCafe.debug.xcconfig"; sourceTree = "<group>"; };
+		93C8E6CEDE1CD1E83D00EAD2 /* Pods_DengenCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DengenCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86AD07E8DDA2E2C5110999F /* Pods-DengenCafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengenCafe.release.xcconfig"; path = "Target Support Files/Pods-DengenCafe/Pods-DengenCafe.release.xcconfig"; sourceTree = "<group>"; };
+		CE06185B26EA4D7C00A19FE9 /* GoogleMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMap.swift; sourceTree = "<group>"; };
 		CE4B022426DB644F00E6C2E0 /* DengenCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DengenCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4B022726DB645000E6C2E0 /* DengenCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DengenCafeApp.swift; sourceTree = "<group>"; };
 		CE4B022926DB645000E6C2E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE4B022B26DB645100E6C2E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4B022E26DB645100E6C2E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE4B023026DB645100E6C2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE4B023826DB73C400E6C2E0 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		CE4B023A26DB777200E6C2E0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CE5563E226E10DF900CB05B4 /* dengenCafe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dengenCafe.json; sourceTree = "<group>"; };
+		CE5563E626E1147900CB05B4 /* DengenCafeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DengenCafeList.swift; sourceTree = "<group>"; };
+		CE55707826DD130E009C2416 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		CE55707E26DD13D3009C2416 /* Krispy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Krispy.png; sourceTree = "<group>"; };
+		CE55707F26DD13D3009C2416 /* StarBacks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarBacks.png; sourceTree = "<group>"; };
+		CEA6A31D26DE6F020088514D /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
+		CEA6A31F26DE6FB70088514D /* DendenCafeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DendenCafeRow.swift; sourceTree = "<group>"; };
+		CEB5FFA226E673BC0032E2C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEBF8AF026DFDC2200FE0EFE /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +55,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D18156BCB7C90945588E2BC /* Pods_DengenCafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31CD8AFC429E184549183723 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AD3F6225F3F8FBB7B7C27AA /* Pods-DengenCafe.debug.xcconfig */,
+				A86AD07E8DDA2E2C5110999F /* Pods-DengenCafe.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CE4B021B26DB644F00E6C2E0 = {
 			isa = PBXGroup;
 			children = (
 				CE4B022626DB645000E6C2E0 /* DengenCafe */,
 				CE4B022526DB644F00E6C2E0 /* Products */,
+				31CD8AFC429E184549183723 /* Pods */,
+				FA2B90259BF6919631261F49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,10 +92,13 @@
 		CE4B022626DB645000E6C2E0 /* DengenCafe */ = {
 			isa = PBXGroup;
 			children = (
+				CE5563E526E1144A00CB05B4 /* View */,
+				CE5563E426E1142100CB05B4 /* Model */,
 				CE4B022726DB645000E6C2E0 /* DengenCafeApp.swift */,
-				CE4B022926DB645000E6C2E0 /* ContentView.swift */,
 				CE4B022B26DB645100E6C2E0 /* Assets.xcassets */,
 				CE4B023026DB645100E6C2E0 /* Info.plist */,
+				CEB5FFA226E673BC0032E2C1 /* GoogleService-Info.plist */,
+				CE55707B26DD13D3009C2416 /* Resource */,
 				CE4B022D26DB645100E6C2E0 /* Preview Content */,
 			);
 			path = DengenCafe;
@@ -69,6 +112,55 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CE5563E426E1142100CB05B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF8AF026DFDC2200FE0EFE /* ModelData.swift */,
+				CE55707826DD130E009C2416 /* Landmark.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE5563E526E1144A00CB05B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B023826DB73C400E6C2E0 /* CircleImage.swift */,
+				CE4B022926DB645000E6C2E0 /* ContentView.swift */,
+				CEA6A31D26DE6F020088514D /* LandmarkDetail.swift */,
+				CE4B023A26DB777200E6C2E0 /* MapView.swift */,
+				CEA6A31F26DE6FB70088514D /* DendenCafeRow.swift */,
+				CE5563E626E1147900CB05B4 /* DengenCafeList.swift */,
+				CE06185B26EA4D7C00A19FE9 /* GoogleMap.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE55707B26DD13D3009C2416 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CE5563E226E10DF900CB05B4 /* dengenCafe.json */,
+				CE55707D26DD13D3009C2416 /* Image */,
+				CE55707F26DD13D3009C2416 /* StarBacks.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CE55707D26DD13D3009C2416 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				CE55707E26DD13D3009C2416 /* Krispy.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FA2B90259BF6919631261F49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93C8E6CEDE1CD1E83D00EAD2 /* Pods_DengenCafe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE4B023326DB645100E6C2E0 /* Build configuration list for PBXNativeTarget "DengenCafe" */;
 			buildPhases = (
+				D0BDACEF552BD9F8760121AB /* [CP] Check Pods Manifest.lock */,
 				CE4B022026DB644F00E6C2E0 /* Sources */,
 				CE4B022126DB644F00E6C2E0 /* Frameworks */,
 				CE4B022226DB644F00E6C2E0 /* Resources */,
+				21B83E600BAC2FC88B1C81B9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +220,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE55708226DD13D3009C2416 /* StarBacks.png in Resources */,
 				CE4B022F26DB645100E6C2E0 /* Preview Assets.xcassets in Resources */,
 				CE4B022C26DB645100E6C2E0 /* Assets.xcassets in Resources */,
+				CE5563E326E10DF900CB05B4 /* dengenCafe.json in Resources */,
+				CE55708126DD13D3009C2416 /* Krispy.png in Resources */,
+				CEB5FFA326E673BC0032E2C1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21B83E600BAC2FC88B1C81B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DengenCafe/Pods-DengenCafe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DengenCafe/Pods-DengenCafe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DengenCafe/Pods-DengenCafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0BDACEF552BD9F8760121AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DengenCafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE4B022026DB644F00E6C2E0 /* Sources */ = {
@@ -139,7 +279,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4B022A26DB645000E6C2E0 /* ContentView.swift in Sources */,
+				CE4B023B26DB777200E6C2E0 /* MapView.swift in Sources */,
+				CEBF8AF126DFDC2200FE0EFE /* ModelData.swift in Sources */,
+				CEA6A32026DE6FB70088514D /* DendenCafeRow.swift in Sources */,
 				CE4B022826DB645000E6C2E0 /* DengenCafeApp.swift in Sources */,
+				CE06185C26EA4D7C00A19FE9 /* GoogleMap.swift in Sources */,
+				CE5563E726E1147900CB05B4 /* DengenCafeList.swift in Sources */,
+				CE4B023926DB73C400E6C2E0 /* CircleImage.swift in Sources */,
+				CEA6A31E26DE6F020088514D /* LandmarkDetail.swift in Sources */,
+				CE55707926DD130E009C2416 /* Landmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +348,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -255,6 +403,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -264,6 +413,7 @@
 		};
 		CE4B023426DB645100E6C2E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AD3F6225F3F8FBB7B7C27AA /* Pods-DengenCafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -285,6 +435,7 @@
 		};
 		CE4B023526DB645100E6C2E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A86AD07E8DDA2E2C5110999F /* Pods-DengenCafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
