@@ -25,8 +25,6 @@ struct GoogleMap: View{
     @State var manager = CLLocationManager()
     
     //入るデータによって緯度を経度を変えたいため、ここで定義
-    @State var map = MKMapView()
-    
     @State var coordinate = CLLocationCoordinate2D()
     @State var coordinate1 = CLLocationCoordinate2D()
     //現在地を取得した際にユーザーから許可をもらうためのプロパティを定義する
@@ -34,7 +32,7 @@ struct GoogleMap: View{
     
     var body : some View {
         //このメソッドの使い方がよく分からない
-        mapView(manager:$manager,alert:$alert,map: $map,coordinate: $coordinate,coordinate1:$coordinate1)
+        mapView(manager:$manager,alert:$alert,coordinate: $coordinate,coordinate1:$coordinate1)
             //.alert(isPresented:)が型
             //これがtrueになったらalertしてくれる
             .alert(isPresented:$alert){
@@ -46,29 +44,13 @@ struct GoogleMap: View{
     }
 }
 
-//mapViewの作成
+final class MyMapView: MKMapView, CLLocationManagerDelegate {
+    private let manager = CLLocationManager()
 
-
-//UIKit(MapViewはUIKitの中のフレームワークの一つ)を使用するために定義するプロトコル(約束ごとのようなもの)
-struct mapView : UIViewRepresentable {
-    //@Bindingを定義した値を変更することで@Stateで定義した値も変更される
-    //@Stateで定義した初期値が@Bindingに代入されるため、初期値を代入しなくても良い
-    @Binding var manager : CLLocationManager
-    @Binding var alert : Bool
-    @Binding var map : MKMapView
-    @Binding var coordinate : CLLocationCoordinate2D
-    @Binding var coordinate1 : CLLocationCoordinate2D
-    
-    
-    let textField = UITextField()
-    
-    //makeCoordinator:Viewの変更をSwiftUI側に通知するためのCoordinatorをインスタンス化するもの
-    func makeCoordinator() -> mapView.Coordinator {
-        return mapView.Coordinator(parent1 : self)
-    }
-    
-    //makeUIView:mapViewの初期値を設定する
-    func makeUIView(context:UIViewRepresentableContext<mapView>) -> MKMapView {
+    func configure(
+        coordinate: CLLocationCoordinate2D,
+        coordinate1: CLLocationCoordinate2D
+    ) {
         let center = coordinate
         let center1 = coordinate1
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 10000, longitudinalMeters: 10000)
@@ -94,109 +76,99 @@ struct mapView : UIViewRepresentable {
                 return
             }
             let route = directionResponse.routes[0]
-            map.addOverlay(route.polyline,level: .aboveRoads)
+            self.addOverlay(route.polyline,level: .aboveRoads)
             //縮尺を設定
             let rect = route.polyline.boundingMapRect
-            map.setRegion(MKCoordinateRegion(rect), animated: true)
+            self.setRegion(MKCoordinateRegion(rect), animated: true)
         }
-        
-        
         
         pin.coordinate = center
         pin1.coordinate = center1
         
-        map.addAnnotation(pin)
-        map.addAnnotation(pin1)
+        addAnnotation(pin)
+        addAnnotation(pin1)
         
-        map.region = region
-        map.region = region1
-        
+        self.region = region
+        self.region = region1
         
         //CLLocationManagerDelegateプロトコルを実装するクラスを指定する
-        manager.delegate = context.coordinator
+        manager.delegate = self
         
         //Userの現在地をその都度アップデートすることが出来るメソッド
         manager.startUpdatingLocation()
         
         //Userの現在地の情報を表示するためのプロパティ(Bool型)
-        map.showsUserLocation = true
+        showsUserLocation = true
         
         //現在地の取得の許可をUserに対して求めるメソッド
         manager.requestWhenInUseAuthorization()
+    }
+    
+    // MARK: Delegate
+    func locationManager(_ manager:CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
+        if status == .denied{
+//            parent.alert.toggle()
+            print("denied")
+        }
+    }
+    
+    func locationManager(_ manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
         
-        //map(地図の情報を戻り値として返す)
+        //lastメソッドは配列の一番最後の部分を渡している
+        let location = locations.last
+        
+        configure(coordinate: location!.coordinate, coordinate1: location!.coordinate)
+        
+        let point = MKPointAnnotation()
+        
+        //緯度経度から地域名を特定することができるプロパティ
+        let georeder = CLGeocoder()
+
+        georeder.reverseGeocodeLocation(location!) {(places,err) in
+            
+            if err != nil {
+                print((err?.localizedDescription)!)
+                return
+            }
+            
+            let place = places?.first?.locality
+            point.title = place
+            point.subtitle = "Current Place"
+            point.coordinate = location!.coordinate
+            self.removeAnnotations(self.annotations)
+            self.addAnnotation(point)
+            
+            let region = MKCoordinateRegion(center: location!.coordinate,latitudinalMeters: 10000,
+                                            longitudinalMeters: 10000)
+            print(region)
+            self.region = region
+        }
+    }
+
+}
+
+//mapViewの作成
+
+
+//UIKit(MapViewはUIKitの中のフレームワークの一つ)を使用するために定義するプロトコル(約束ごとのようなもの)
+struct mapView : UIViewRepresentable {
+    //@Bindingを定義した値を変更することで@Stateで定義した値も変更される
+    //@Stateで定義した初期値が@Bindingに代入されるため、初期値を代入しなくても良い
+    @Binding var coordinate : CLLocationCoordinate2D
+    @Binding var coordinate1 : CLLocationCoordinate2D
+    
+    private let map = MyMapView()
+    
+    //makeUIView:mapViewの初期値を設定する
+    func makeUIView(context:UIViewRepresentableContext<mapView>) -> MKMapView {
+        map.configure(coordinate: coordinate, coordinate1: coordinate1)
         return map
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<mapView>) {
-        
-    }
-    
-    //makeCoordinaterで返すparent1の中身を定義している
-    class Coordinator:NSObject,CLLocationManagerDelegate {
-        
-        //mapViewのフレームワークをparent変数に格納する
-        var parent : mapView
-        
-        //parentを初期化する(init)
-        init(parent1 : mapView) {
-            parent = parent1
-        }
-        
-        
-        func locationManager(_ manager:CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
-            
-            if status == .denied{
-                parent.alert.toggle()
-                print("denied")
-            }
-        }
-        
-        func locationManager(_ manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
-            
-            //lastメソッドは配列の一番最後の部分を渡している
-            let location = locations.last
-            
-            let point = MKPointAnnotation()
-            
-            //緯度経度から地域名を特定することができるプロパティ
-            let georeder = CLGeocoder()
-            let handler: ([CLPlacemark]?, Error?) -> Void = { places, error in
-            }
-            georeder.reverseGeocodeLocation(location!, completionHandler: handler)
-            georeder.reverseGeocodeLocation(location!, completionHandler: { places, error in
-            })
-            georeder.reverseGeocodeLocation(location!) { places, error in
-            }
-            
-            georeder.reverseGeocodeLocation(location!) {(places,err) in
-                
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                    return
-                }
-                
-                let place = places?.first?.locality
-                point.title = place
-                point.subtitle = "Current Place"
-                point.coordinate = location!.coordinate
-                self.parent.map.removeAnnotations(self.parent.map.annotations)
-                self.parent.map.addAnnotation(point)
-                
-                let region = MKCoordinateRegion(center: location!.coordinate,latitudinalMeters: 10000,
-                                                longitudinalMeters: 10000)
-                print(region)
-                self.parent.map.region = region
-            }
-        }
+        map.configure(coordinate: coordinate, coordinate1: coordinate1)
     }
 }
-
-
-
-
-
-
 
 //プレビュー画面で実際に表示するクラス
 struct GoogleMap_Previews: PreviewProvider {
