@@ -21,8 +21,6 @@ import UIKit
 
 //表示する内容を纏めているクラス
 struct GoogleMap: View{
-    //CLLocationManager CoreLocationフレームワークにあるプロパティのこと
-    @State var manager = CLLocationManager()
     
     //入るデータによって緯度を経度を変えたいため、ここで定義
     @State var coordinate = CLLocationCoordinate2D()
@@ -32,19 +30,18 @@ struct GoogleMap: View{
     
     var body : some View {
         //このメソッドの使い方がよく分からない
-        mapView(manager:$manager,alert:$alert,coordinate: $coordinate,coordinate1:$coordinate1)
+        mapView(coordinate: $coordinate,coordinate1:$coordinate1)
             //.alert(isPresented:)が型
             //これがtrueになったらalertしてくれる
             .alert(isPresented:$alert){
-            
+
             //ユーザに現在地の情報を取得する許可を求めるAlert(title: Text()を定義している)
             Alert(title: Text("Please Enable Location Access In Setting Panel!!!"))
-            
         }
     }
 }
 
-final class MyMapView: MKMapView, CLLocationManagerDelegate {
+final class MyMapView: MKMapView, CLLocationManagerDelegate ,MKMapViewDelegate{
     private let manager = CLLocationManager()
 
     func configure(
@@ -93,6 +90,7 @@ final class MyMapView: MKMapView, CLLocationManagerDelegate {
         
         //CLLocationManagerDelegateプロトコルを実装するクラスを指定する
         manager.delegate = self
+        delegate = self
         
         //Userの現在地をその都度アップデートすることが出来るメソッド
         manager.startUpdatingLocation()
@@ -117,7 +115,7 @@ final class MyMapView: MKMapView, CLLocationManagerDelegate {
         //lastメソッドは配列の一番最後の部分を渡している
         let location = locations.last
         
-        configure(coordinate: location!.coordinate, coordinate1: location!.coordinate)
+        configure(coordinate: location!.coordinate, coordinate1: CLLocationCoordinate2D(latitude:37.7917315 , longitude: -122.4169851))
         
         let point = MKPointAnnotation()
         
@@ -144,7 +142,12 @@ final class MyMapView: MKMapView, CLLocationManagerDelegate {
             self.region = region
         }
     }
-
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 4.0
+        return renderer
+    }
 }
 
 //mapViewの作成
