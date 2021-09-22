@@ -17,7 +17,7 @@ struct LandmarkDetail: View {
             MapView(coordinate: landmark.locationCoordinates)
                 .edgesIgnoringSafeArea(.all)
                 .frame(height:300)
-                
+            
             
             CircleImage(image:landmark.image)
                 .offset(y:-130)
@@ -25,16 +25,16 @@ struct LandmarkDetail: View {
             
             
             Text(landmark.name)
-                    .font(.title)
+                .font(.title)
             Text(landmark.subName)
                 .font(.title3)
             Text(landmark.category)
-                 .font(.subheadline)
+                .font(.subheadline)
             VStack(alignment:.leading){
                 
                 
-                    
-                    Spacer()
+                
+                Spacer()
                 
             }
             Spacer()
@@ -52,11 +52,8 @@ struct LandmarkDetail_Previews: PreviewProvider {
             LandmarkDetail(landmark: landmarks[0])
                 //プレビューデバイスを設定するコード
                 .previewDevice(PreviewDevice(rawValue:"iPhone 12 Pro Max"))
-            LandmarkDetail(landmark: landmarks[0])
-                //プレビューデバイスを設定するコード
-                .previewDevice(PreviewDevice(rawValue:"iPhone 12 Pro Max"))
         }
-            
+        
         
     }
 }

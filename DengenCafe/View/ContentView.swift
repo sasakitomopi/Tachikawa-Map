@@ -10,9 +10,25 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        DengenCafeList()
+        TabView{
+            DengenCafeList()
+                .tabItem{
+                    VStack{
+                        Text("List")
+                        Image(systemName: "list.bullet")
+                    }
+                }.tag(1)
+            GoogleMap()
+                .tabItem {
+                    VStack{
+                        Text("Map")
+                        Image(systemName: "mappin.circle")
+                    }
+                }.tag(2)
+        }
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
