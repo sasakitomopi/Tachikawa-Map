@@ -11,26 +11,49 @@ struct HamburgerButton: View {
     @State private var currentOffset = CGFloat()
     @State private var closeOffset = CGFloat()
     @State private var openOffset = CGFloat()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HamburgerButtonView(currentOffset:$currentOffset,closeOffset:$closeOffset,openOffset:$openOffset)
     }
 }
 
-final class HamburgerButtonFloat{
-    func configure(
-        currentOffset:CGFloat,
-        closeOffset:CGFloat,
-        openOffset:CGFloat,
-        viewWidth:CGFloat
-    ){
-        //ハンバーガーメニューのViewのサイズを
-        let currentOffset = (viewWidth/2) * -1+((viewWidth*0.5/2) * -1)
-        let closeOffset = currentOffset
-        let openOffset = ((viewWidth / 2) * -1)+((viewWidth * 0.5) / 2)
-        
-        
+struct HamburgerButtonView : View{
+    
+    @Binding var currentOffset : CGFloat
+    @Binding var closeOffset : CGFloat
+    @Binding var openOffset : CGFloat
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Color(red: 107/255, green: 142/255, blue: 35/255).edgesIgnoringSafeArea(.all)
+                VStack {
+                    Button(action:{
+                        self.toggleHamburgerMenu()
+                    }){
+                        Image(systemName: "line.3.horizontal.circle.fill")
+                    }
+                }
+            }
+        }
+    }
+    
+    func setInitPosition(viewWidth:CGFloat) {
+        self.currentOffset = (viewWidth/2) * -1 + ((viewWidth * 0.5) / 2) * -1
+        self.closeOffset = self.currentOffset
+        self.openOffset = ((viewWidth / 2) * -1) + ((viewWidth * 0.5) / 2)
+    }
+    
+    func toggleHamburgerMenu(){
+        if(self.currentOffset == self.openOffset){
+            self.currentOffset = self.closeOffset
+        }else{
+            self.currentOffset = self.openOffset
+        }
     }
 }
+
+
 
 
 struct HamburgerButton_Previews: PreviewProvider {
